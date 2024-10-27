@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-
+use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 class PostController extends Controller
 {
     /**
@@ -28,9 +29,18 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePostRequest $request)
+    public function store(Request $request)
     {
-        //
+        sleep(2);
+        $validatedData = $request->validate([
+            "body" => ["required", "string", "max:255", "min:5"]
+        ]);
+       
+        Post::create([
+            "body" => $validatedData['body']
+        ]);
+        return redirect('/');
+ 
     }
 
     /**
@@ -38,7 +48,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return inertia("Show");
     }
 
     /**

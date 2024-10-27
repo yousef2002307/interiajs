@@ -7,5 +7,5 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 Route::get('/up', function () {
-    return response()->json(['status' => 'ok']);
+    return response()->json(['data' => 'djkdasd sadjasdjk jo']);
 });

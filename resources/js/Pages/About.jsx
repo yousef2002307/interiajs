@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from '@inertiajs/react';
 const About = ({posts}) => {
     console.log(posts)
+    useEffect(() => {
+        const func = async () => {  
+            const response = await fetch('/api/up');
+            const data = await response.json();
+            console.log(data)
+        }
+        func();
+    }, [])
     return (
         <div>
             <h1 className="text-4xl font-bold">About Us</h1>
