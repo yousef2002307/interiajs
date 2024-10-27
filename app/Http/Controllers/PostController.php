@@ -39,6 +39,7 @@ class PostController extends Controller
         Post::create([
             "body" => $validatedData['body']
         ]);
+        //////////debugging
         return redirect('/');
  
     }
