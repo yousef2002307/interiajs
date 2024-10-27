@@ -49,11 +49,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-<<<<<<< HEAD
         return inertia("Show");
-=======
-        return inertia("Home/Home");
->>>>>>> a07c6bf2c276936df39c0001a34476c671eb52e8
     }
 
     /**
